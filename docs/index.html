@@ -1,1 +1,64 @@
-Index page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Paper Viewer</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <style>
+    body, html { margin:0; padding:0; height:100%; }
+    #root { height:100%; }
+    .header { display:flex; align-items:center; background:#333; color:#fff; padding:10px; }
+    .header button { margin-right:20px; cursor:pointer; }
+    .paper-list { padding:20px; }
+    .paper-item { cursor:pointer; display:flex; align-items:center; margin-bottom:10px; }
+    .paper-item img { width:24px; height:24px; margin-right:10px; }
+    .iframe-container { width:100%; height:calc(100% - 50px); }
+    iframe { width:100%; height:100%; border:none; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState } = React;
+    const papers = [
+      { title: "Paper One", iconUri: "icon1.png", htmlDoclink: "paper1.html" },
+      { title: "Paper Two", iconUri: "icon2.png", htmlDoclink: "paper2.html" },
+      { title: "Paper Three", iconUri: "icon3.png", htmlDoclink: "paper3.html" }
+    ];
+
+    function App() {
+      const [selected, setSelected] = useState(null);
+
+      return (
+        <div style={{height: '100%', display:'flex', flexDirection:'column'}}>
+          <div className="header">
+            {selected && <button onClick={() => setSelected(null)}>Home</button>}
+            <h1 style={{ margin: 0 }}>{selected ? selected.title : "Research Papers"}</h1>
+          </div>
+
+          {selected ? (
+            <div className="iframe-container">
+              <iframe src={selected.htmlDoclink}></iframe>
+            </div>
+          ) : (
+            <div className="paper-list">
+              {papers.map((paper, idx) => (
+                <div key={idx} className="paper-item" onClick={() => setSelected(paper)}>
+                  <img src={paper.iconUri} alt="icon" />
+                  <span>{paper.title}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

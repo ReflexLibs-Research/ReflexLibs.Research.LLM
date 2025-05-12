@@ -16,7 +16,19 @@
     .header { display: flex; align-items: center; background: #333; color: #fff; padding: 10px; }
     .header .home-button { margin-right: 20px; cursor: pointer; background: none; border: none; color: #fff; font-size: 1.5em; }
     .paper-list { flex: 1; overflow-y: auto; padding: 20px; }
-    .paper-item { cursor: pointer; display: flex; align-items: flex-start; margin-bottom: 20px; }
+    .paper-item { 
+      cursor: pointer; 
+      display: flex; 
+      align-items: flex-start; 
+      margin: 10px 0; 
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 15px;
+      transition: box-shadow 0.2s;
+    }
+    .paper-item:hover {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
     .paper-item img {
       width: 300px;
       height: auto;
@@ -42,7 +54,7 @@
       },
       {
         title: "AI LLM Math, Python, C# Code Generation vs Human ReflexLibs’",
-        iconUri: "https://reflexlibs-research.github.io/ReflexLibs.Research.LLM/images/AI6-reflexlibs.png",
+        iconUri: "../images/AI6-reflexlibs.png",
         htmlDoclink: "https://devriskevolutionwebservice.azurewebsites.net/api/options/heston",
         description: "Stochastic Volatility and the Normal / Lognormal Heston Model: Human ReflexLibs vs OpenAI, Claude, Deepseek R1 and Gemini"
       }

@@ -12,57 +12,39 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <style>
     body, html { margin: 0; padding: 0; height: 100%; font-family: Arial, sans-serif; }
-    #root { height: calc(100% - auto); }
-    .flags-container { display: flex; flex-wrap: wrap; gap: 20px; padding: 20px; justify-content: center; }
-    .flag-item { text-align: center; width: 300px; }
-    .flag-item img { width: 300px; display: block; margin: 0 auto; }
+    #root { height: 100%; display: flex; flex-direction: column; }
     .header { display: flex; align-items: center; background: #333; color: #fff; padding: 10px; }
     .header button { margin-right: 20px; cursor: pointer; }
-    .paper-list { padding: 20px; }
-    .paper-item { cursor: pointer; display: flex; align-items: center; margin-bottom: 10px; }
-    .paper-item img { width: 24px; height: 24px; margin-right: 10px; }
-    .iframe-container { width: 100%; height: calc(100% - 50px); }
+    .paper-list { flex: 1; overflow-y: auto; padding: 20px; }
+    .paper-item { cursor: pointer; display: flex; align-items: flex-start; margin-bottom: 20px; }
+    .paper-item img { width: 64px; height: 64px; margin-right: 15px; }
+    .paper-item h2 { margin: 0 0 5px; font-size: 1.2em; }
+    .paper-item p { margin: 0; color: #555; }
+    .iframe-container { flex: 1; }
     iframe { width: 100%; height: 100%; border: none; }
   </style>
 </head>
 <body>
-  <!-- Flags Section -->
-  <div class="flags-container">
-    <div class="flag-item">
-      <img src="https://riskevolutioninflationservice.azurewebsites.net/Icon/Flag/Get?CountryISO=OpenAI-o4-mini-high&FlagType=FlagsSmall" alt="Small Flag" />
-      <p>Small size flag icon for the specified country.</p>
-    </div>
-    <div class="flag-item">
-      <img src="https://riskevolutioninflationservice.azurewebsites.net/Icon/Flag/Get?CountryISO=OpenAI-o4-mini-high&FlagType=FlagsMedium" alt="Medium Flag" />
-      <p>Medium size flag icon showing more detail.</p>
-    </div>
-    <div class="flag-item">
-      <img src="https://riskevolutioninflationservice.azurewebsites.net/Icon/Flag/Get?CountryISO=OpenAI-o4-mini-high&FlagType=FlagsLarge" alt="Large Flag" />
-      <p>Large flag icon for high-resolution displays.</p>
-    </div>
-    <div class="flag-item">
-      <img src="https://riskevolutioninflationservice.azurewebsites.net/Icon/Flag/Get?CountryISO=OpenAI-o4-mini-high&FlagType=FlagsXLarge" alt="XLarge Flag" />
-      <p>Extra-large flag icon for full-screen presentations.</p>
-    </div>
-  </div>
-
   <div id="root"></div>
   <script type="text/babel" data-presets="env,react">
     const { useState } = React;
     const papers = [
-      { title: "Paper One", iconUri: "icon1.png", htmlDoclink: "paper1.html" },
-      { title: "Paper Two", iconUri: "icon2.png", htmlDoclink: "paper2.html" },
-      { title: "Paper Three", iconUri: "icon3.png", htmlDoclink: "paper3.html" }
+      {
+        title: "AI Model Capability Progression: o‑series “mini‑high”",
+        iconUri: "https://riskevolutioninflationservice.azurewebsites.net/Icon/Flag/Get?CountryISO=OpenAI-o4-mini-high&FlagType=FlagsSmall",
+        htmlDoclink: "https://reflexlibs-research.github.io/ReflexLibs.Research.LLM/research1/openaiAI-o4-o5-o6-Capabilities.html",
+        description: "A snapshot of current (o4) and projected (o5, o6) capabilities for building math‑powered web applications."
+      }
     ];
 
     function App() {
       const [selected, setSelected] = useState(null);
 
       return (
-        <div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
+        <div style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
           <div className="header">
             {selected && <button onClick={() => setSelected(null)}>Home</button>}
-            <h1 style={{ margin: 0 }}>{selected ? selected.title : "Research Papers"}</h1>
+            <h1 style={{margin: 0}}>{selected ? selected.title : "Research Papers"}</h1>
           </div>
 
           {selected ? (
@@ -73,8 +55,11 @@
             <div className="paper-list">
               {papers.map((paper, idx) => (
                 <div key={idx} className="paper-item" onClick={() => setSelected(paper)}>
-                  <img src={paper.iconUri} alt="icon" />
-                  <span>{paper.title}</span>
+                  <img src={paper.iconUri} alt={paper.title} />
+                  <div>
+                    <h2>{paper.title}</h2>
+                    <p>{paper.description}</p>
+                  </div>
                 </div>
               ))}
             </div>

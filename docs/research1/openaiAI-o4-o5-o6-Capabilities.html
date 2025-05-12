@@ -1,1 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Model Capability Progression: o‑series “mini‑high”</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 leading-relaxed">
+  <main class="max-w-5xl mx-auto py-10 px-4">
+    <!-- Title -->
+    <header class="mb-8">
+      <h1 class="text-4xl font-extrabold tracking-tight">AI Model Capability Progression: <span class="text-indigo-600">o‑series “mini‑high”</span></h1>
+      <p class="mt-3 text-lg">A snapshot of current (o4) and projected (o5, o6) capabilities for building math‑powered web applications.</p>
+    </header>
+
+    <!-- Generation Comparison Table -->
+    <section class="my-10">
+      <h2 class="text-2xl font-semibold mb-4">Generation Comparison</h2>
+      <div class="overflow-x-auto bg-white shadow ring-1 ring-gray-200 rounded-lg">
+        <table class="min-w-full text-sm text-left border-collapse">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="px-4 py-3 font-semibold border-b border-gray-200">Dimension \ Generation</th>
+              <th class="px-4 py-3 font-semibold border-b border-gray-200">o4‑mini‑high<br><span class="font-normal text-xs">(shipping 2025)</span></th>
+              <th class="px-4 py-3 font-semibold border-b border-gray-200">o5‑mini‑high<br><span class="font-normal text-xs">(forecast ≈ 2026‑Q4)</span></th>
+              <th class="px-4 py-3 font-semibold border-b border-gray-200">o6‑mini‑high<br><span class="font-normal text-xs">(forecast ≈ 2028)</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-200">
+              <td class="px-4 py-2 font-medium">Pure math reasoning</td>
+              <td class="px-4 py-2">≈ MIT junior in abstract algebra &amp; real analysis; solves IMO Q1‑Q2 reliably.</td>
+              <td class="px-4 py-2">Approaches graduate breadth; automated lemma‑finding; near‑medalist (Q1‑Q5).</td>
+              <td class="px-4 py-2">Rivals entry‑level research assistant: conjecture generation, proof search.</td>
+            </tr>
+            <tr class="border-b border-gray-200 bg-gray-50">
+              <td class="px-4 py-2 font-medium">Python code generation</td>
+              <td class="px-4 py-2">2‑3 kLOC projects; passes most unit tests; async/DB race fixes need help.</td>
+              <td class="px-4 py-2">10‑15 kLOC multi‑service repos; self‑generates migrations &amp; CI; detects deadlocks.</td>
+              <td class="px-4 py-2">Full repo scaffolding incl. IaC, containers, observability &amp; security lint.</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="px-4 py-2 font-medium">Web UI (React/Tailwind)</td>
+              <td class="px-4 py-2">Responsive SPA; struggles with complex state mgmt.</td>
+              <td class="px-4 py-2">Accessibility mastered; auto‑tunes CLS/LCP; storybook + screenshot tests.</td>
+              <td class="px-4 py-2">Designer‑level layouts; iterates via eye‑tracking UX feedback.</td>
+            </tr>
+            <tr class="border-b border-gray-200 bg-gray-50">
+              <td class="px-4 py-2 font-medium">Full‑stack integration</td>
+              <td class="px-4 py-2">FastAPI ↔ Postgres ↔ React; brittle auth &amp; multi‑tenant sharding.</td>
+              <td class="px-4 py-2">Event‑driven (Kafka) when load &gt; X; autoscales on K8s.</td>
+              <td class="px-4 py-2">Generates Terraform/Pulumi, chaos‑engineering probes &amp; rollback plans.</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="px-4 py-2 font-medium">Autonomous debugging</td>
+              <td class="px-4 py-2">Static analysis + fuzz tests; flags race conditions.</td>
+              <td class="px-4 py-2">Live‑patches 80 % of crashes; synthesises failing tests.</td>
+              <td class="px-4 py-2">Closed‑loop observability: trace → hypothesis → patch → AB test.</td>
+            </tr>
+            <tr class="border-b border-gray-200 bg-gray-50">
+              <td class="px-4 py-2 font-medium">Human hours saved</td>
+              <td class="px-4 py-2">≈ 50‑60 % reduction; senior engineer still needed.</td>
+              <td class="px-4 py-2">75‑85 % reduction; juniors mainly review.</td>
+              <td class="px-4 py-2">90‑95 %; one product owner suffices.</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2 font-medium">Complete math‑powered product?</td>
+              <td class="px-4 py-2 font-semibold text-indigo-700">Prototype‑quality in 1–2 days.</td>
+              <td class="px-4 py-2 font-semibold text-indigo-700">MVP‑to‑beta in a weekend.</td>
+              <td class="px-4 py-2 font-semibold text-indigo-700">Prod‑ready directly.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Where o4 stands today -->
+    <section class="my-10">
+      <h2 class="text-2xl font-semibold mb-4">Where o4‑mini‑high stands today <span class="text-sm font-normal">(May 2025)</span></h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>Math logic:</strong> Formalises &amp; verifies routines up to undergraduate numerical analysis; proof assistants need light steering.</li>
+        <li><strong>Back‑end:</strong> Generates idiomatic FastAPI/Django services with Docker &amp; CI; subtle transaction‑isolation bugs remain.</li>
+        <li><strong>Web UI:</strong> Produces responsive Tailwind + React UIs; advanced custom hooks or offline handling still challenging.</li>
+      </ul>
+      <p class="mt-4">Overall, a small team (1 senior engineer + designer) can ship a math‑oriented prototype but won’t trust it unattended.</p>
+    </section>
+
+    <!-- Concrete examples table -->
+    <section class="my-10">
+      <h2 class="text-2xl font-semibold mb-4">Concrete Examples Across Generations</h2>
+      <div class="overflow-x-auto bg-white shadow ring-1 ring-gray-200 rounded-lg">
+        <table class="min-w-full text-sm text-left border-collapse">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="px-4 py-3 font-semibold border-b border-gray-200">Task</th>
+              <th class="px-4 py-3 font-semibold border-b border-gray-200">o4 outcome</th>
+              <th class="px-4 py-3 font-semibold border-b border-gray-200">o5 outcome</th>
+              <th class="px-4 py-3 font-semibold border-b border-gray-200">o6 outcome</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-200">
+              <td class="px-4 py-2 font-medium">Personal‑finance dashboard<br><span class="text-xs italic">(Monte‑Carlo retirement sim)</span></td>
+              <td class="px-4 py-2">Generates sims &amp; charts; engineer fixes edge‑cases in amortisation.</td>
+              <td class="px-4 py-2">Full repo incl. tests; launches on Render/Vercel with auth.</td>
+              <td class="px-4 py-2">Adds compliance checks, bank‑API integration, canary roll‑outs.</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2 font-medium">Interactive geometry explorer</td>
+              <td class="px-4 py-2">Renders constructions; performance needs manual WASM port.</td>
+              <td class="px-4 py-2">Suggests &amp; implements WASM core; exports theorems to Lean.</td>
+              <td class="px-4 py-2">Adds collaborative mode, voice narration, AR overlays.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Projection reasoning -->
+    <section class="my-10">
+      <h2 class="text-2xl font-semibold mb-4">Projection Reasoning</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>Model size vs. skill:</strong> 5–8× parameter growth per gen with better retrieval; math reasoning rises super‑linearly to o5, then tapers.</li>
+        <li><strong>Tool integration:</strong> o5 introduces implicit agentic planning, removing most glue code.</li>
+        <li><strong>Self‑debug loops:</strong> o6 pairs with live telemetry for autonomic SRE‑style remediation.</li>
+      </ul>
+    </section>
+
+    <!-- Human–AI collaboration shift -->
+    <section class="my-10">
+      <h2 class="text-2xl font-semibold mb-4">Human–AI Collaboration Shift</h2>
+      <ol class="list-decimal pl-6 space-y-2">
+        <li><strong>o4:</strong> Human <em>builds</em>, AI accelerates.</li>
+        <li><strong>o5:</strong> AI <em>builds</em>, human reviews.</li>
+        <li><strong>o6:</strong> AI <em>builds &amp; operates</em>, human specifies outcomes.</li>
+      </ol>
+    </section>
+
+    <!-- Implications for teams -->
+    <section class="my-10">
+      <h2 class="text-2xl font-semibold mb-4">Implications for Teams</h2>
+      <h3 class="font-semibold mt-4">Startups (≤3 devs)</h3>
+      <p class="ml-4">Today prototype faster; by o5 launch with almost no full‑time engineers; by o6 bottleneck shifts to market validation.</p>
+      <h3 class="font-semibold mt-4">Enterprises</h3>
+      <p class="ml-4">o5 enables legacy rewrites; o6 orchestrates brownfield + greenfield integration with automatic regression guards.</p>
+      <h3 class="font-semibold mt-4">Education &amp; hiring</h3>
+      <p class="ml-4">Implementation skill gives way to specification skill—framing the right mathematical model.</p>
+    </section>
+
+    <!-- Bottom line -->
+    <footer class="mt-12 border-t pt-6 text-lg">
+      <p><strong>Bottom line:</strong> <span class="block mt-2">o4 can deliver end‑to‑end demos but needs human hardening; o5 owns the MVP cycle with humans reviewing; o6 likely handles autonomous DevOps, letting domain experts ship full‑featured, mathematically sophisticated products solo.</span></p>
+    </footer>
+  </main>
+</body>
+</html>
 
